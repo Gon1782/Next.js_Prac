@@ -23,7 +23,9 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
-    router.push(`/ssr/${count}`);
+    if (Number.isInteger(count)) {
+      router.push(`/ssr/${count}`);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
